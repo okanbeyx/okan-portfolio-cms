@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="OkanPortfolio.Api/OkanPortfolio.Api.csproj" />
+  <Project Path="OkanPortfolio.Application/OkanPortfolio.Application.csproj" />
+  <Project Path="OkanPortfolio.Domain/OkanPortfolio.Domain.csproj" />
+  <Project Path="OkanPortfolio.Infrastructure/OkanPortfolio.Infrastructure.csproj" />
+</Solution>

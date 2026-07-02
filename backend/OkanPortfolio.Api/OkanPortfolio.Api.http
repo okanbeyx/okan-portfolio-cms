@@ -1,0 +1,6 @@
+@OkanPortfolio.Api_HostAddress = http://localhost:5231
+
+GET {{OkanPortfolio.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
