@@ -1,27 +1,37 @@
 # Okan Portfolio CMS
 
-Modern, multilingual and CMS-based personal portfolio website.  
-Modern, çok dilli ve CMS destekli kişisel portföy web sitesi.
+Modern, multilingual, SEO-friendly and CMS-based personal portfolio system.  
+Modern, çok dilli, SEO uyumlu ve CMS destekli kişisel portföy sistemi.
+
+🔗 Live Website: https://okancelikcan.com
 
 ---
 
 ## 🇹🇷 Proje Hakkında
 
-Okan Portfolio CMS, statik portföy yapısını dinamik ve yönetilebilir hale getirmek için geliştirilen full-stack bir portföy yönetim sistemidir.
+Okan Portfolio CMS, klasik statik portföy yapısını dinamik, yönetilebilir ve ürün mantığına sahip bir CMS sistemine dönüştürmek amacıyla geliştirilen full-stack bir portföy projesidir.
 
-Proje; public portföy sitesi ve korumalı admin panelinden oluşur. Admin panel üzerinden projeler, hero alanı, hakkımda bölümü, teknik yetenekler, eğitim geçmişi, iletişim bağlantıları, yorumlar ve site metinleri yönetilebilir.
+Proje; SEO uyumlu public portföy sitesi, korumalı admin CMS paneli ve ASP.NET Core Web API backend yapısından oluşur.
 
-Sistem Türkçe ve İngilizce içerik desteğine sahiptir. Admin Türkçe içerik girdikten sonra OpenAI entegrasyonu ile İngilizce içerik otomatik olarak oluşturulabilir ve manuel olarak düzenlenebilir.
+Public portföy sitesi Next.js ile geliştirilmiştir. Bu sayede sayfalar SEO açısından daha uygun şekilde prerender edilir; sitemap, robots.txt, canonical URL, Open Graph metadata ve JSON-LD structured data desteği sağlanır.
+
+Admin panel üzerinden projeler, hero alanı, hakkımda bölümü, teknik yetenekler, eğitim geçmişi, iletişim bağlantıları, yorumlar ve site metinleri yönetilebilir.
+
+Sistem Türkçe ve İngilizce içerik desteğine sahiptir. Admin Türkçe içerik girdikten sonra OpenAI entegrasyonu ile İngilizce içerikler otomatik olarak oluşturulabilir ve gerektiğinde manuel olarak düzenlenebilir.
 
 ---
 
 ## 🇬🇧 About the Project
 
-Okan Portfolio CMS is a full-stack portfolio management system designed to make a personal portfolio website dynamic and manageable through a custom CMS panel.
+Okan Portfolio CMS is a full-stack portfolio management system designed to transform a classic static portfolio into a dynamic, manageable and product-oriented CMS platform.
 
-The project includes a public portfolio website and a protected admin dashboard. Through the admin panel, projects, hero content, about section, technical skills, education history, contact links, testimonials and site texts can be managed dynamically.
+The project consists of an SEO-friendly public portfolio website, a protected admin CMS panel and an ASP.NET Core Web API backend.
 
-The system supports Turkish and English content. The admin can enter Turkish content first, generate English content automatically with OpenAI integration, and manually edit the generated result if needed.
+The public portfolio website is built with Next.js. This provides prerendered pages, better SEO support, sitemap, robots.txt, canonical URLs, Open Graph metadata and JSON-LD structured data.
+
+Through the admin panel, projects, hero content, about section, technical skills, education history, contact links, testimonials and site texts can be managed dynamically.
+
+The system supports Turkish and English content. The admin can enter Turkish content first, generate English content automatically with OpenAI integration, and manually edit the generated content when needed.
 
 ---
 
@@ -29,8 +39,11 @@ The system supports Turkish and English content. The admin can enter Turkish con
 
 ### 🇹🇷 Özellikler
 
-- Public portföy sitesi
-- Korumalı admin paneli
+- SEO uyumlu public portföy sitesi
+- Next.js tabanlı prerender edilmiş public frontend
+- React + Vite tabanlı admin CMS paneli
+- ASP.NET Core Web API backend
+- MSSQL veritabanı
 - JWT tabanlı admin girişi
 - Özel admin route yapısı
 - Proje CMS sistemi
@@ -50,16 +63,27 @@ The system supports Turkish and English content. The admin can enter Turkish con
 - OpenAI destekli İngilizce çeviri
 - Görseli olmayan projeler için özel placeholder tasarım
 - Splash / loading ekranı
-- Login rate limit
-- Public yorum gönderme rate limit
+- Mobil uyumlu navbar ve dil değiştirici
+- Login rate limiting
+- Public yorum gönderme rate limiting
+- robots.txt desteği
+- sitemap.xml desteği
+- Canonical URL
+- Open Graph metadata
+- Twitter metadata
+- JSON-LD structured data
+- Google Search Console uyumluluğu
 - User-secrets / environment variables ile güvenli secret yönetimi
 
 ### 🇬🇧 Features
 
-- Public portfolio website
-- Protected admin dashboard
+- SEO-friendly public portfolio website
+- Next.js-based prerendered public frontend
+- React + Vite-based admin CMS panel
+- ASP.NET Core Web API backend
+- MSSQL database
 - JWT-based admin authentication
-- Custom admin route
+- Custom admin route structure
 - Project CMS
 - Multiple project image uploads
 - Cover image selection
@@ -77,15 +101,80 @@ The system supports Turkish and English content. The admin can enter Turkish con
 - OpenAI-assisted English translation
 - Placeholder design for projects without images
 - Splash / loading screen
+- Mobile-friendly navbar and language switcher
 - Login rate limiting
 - Public testimonial submission rate limiting
+- robots.txt support
+- sitemap.xml support
+- Canonical URL
+- Open Graph metadata
+- Twitter metadata
+- JSON-LD structured data
+- Google Search Console support
 - Secure secret management with user-secrets / environment variables
+
+---
+
+## 🧱 Project Architecture / Proje Mimarisi
+
+This project consists of three main parts:
+
+Bu proje üç ana parçadan oluşur:
+
+### 1. Public Portfolio Website
+
+- Built with Next.js
+- SEO-friendly prerendered output
+- Fetches dynamic content from the ASP.NET Core API
+- Turkish and English content support
+- Mobile responsive design
+- robots.txt and sitemap.xml support
+- JSON-LD structured data
+- Open Graph and Twitter metadata
+- Deployed on Vercel
+
+### 2. Admin CMS Panel
+
+- Built with React and Vite
+- Protected admin login
+- JWT-based authentication
+- CMS modules for managing:
+  - Hero content
+  - Projects
+  - Project images
+  - Skills
+  - About section
+  - Education timeline
+  - Contact links
+  - Testimonials
+  - Site texts
+- Deployed separately from the public Next.js frontend
+
+### 3. Backend API
+
+- ASP.NET Core Web API
+- MSSQL database
+- Entity Framework Core
+- JWT authentication
+- Rate limiting
+- Secure configuration practices
+- OpenAI API integration for automatic English content generation
+- Hosted separately from the frontend applications
 
 ---
 
 ## 🛠 Tech Stack / Kullanılan Teknolojiler
 
-### Frontend
+### Public Frontend
+
+- Next.js
+- React
+- Tailwind CSS
+- JavaScript
+- JSON-LD structured data
+- Vercel deployment
+
+### Admin Frontend
 
 - React
 - Vite
@@ -97,14 +186,21 @@ The system supports Turkish and English content. The admin can enter Turkish con
 
 - ASP.NET Core Web API
 - Entity Framework Core
-- MSSQL Server
 - JWT Authentication
-- OpenAI API Integration
 - Rate Limiting Middleware
+- OpenAI API Integration
 
 ### Database
 
 - Microsoft SQL Server
+
+### Deployment & Infrastructure
+
+- Vercel for public frontend
+- Vercel for admin frontend
+- Plesk / Windows hosting for ASP.NET Core API
+- Cloudflare DNS
+- Google Search Console
 
 ---
 
@@ -118,10 +214,27 @@ okan-portfolio-cms
 │   ├── OkanPortfolio.Domain
 │   └── OkanPortfolio.Infrastructure
 │
-└── frontend
-    ├── public
-    └── src
+├── frontend
+│   ├── public
+│   └── src
+│
+├── frontend-next
+│   ├── public
+│   └── src
+│       ├── app
+│       ├── components
+│       ├── data
+│       ├── hooks
+│       └── services
+│
+└── README.md
 ```
+
+### Folder Notes
+
+- `backend/` contains the ASP.NET Core Web API.
+- `frontend/` contains the React + Vite admin/CMS frontend.
+- `frontend-next/` contains the SEO-friendly Next.js public portfolio frontend.
 
 ---
 
@@ -156,7 +269,7 @@ Before running the project, make sure the following tools are installed:
 ## 1. Projeyi Klonla
 
 ```bash
-git clone https://github.com/USERNAME/REPOSITORY_NAME.git
+git clone https://github.com/okanbeyx/okan-portfolio-cms.git
 cd okan-portfolio-cms
 ```
 
@@ -180,8 +293,9 @@ dotnet restore
 
 ## 3. User Secrets Ayarları
 
-Bu projede hassas bilgiler kaynak kodda tutulmaz.  
-JWT key, OpenAI API key ve admin şifresi `user-secrets` veya production ortamında environment variable üzerinden yönetilmelidir.
+Bu projede hassas bilgiler kaynak kodda tutulmaz.
+
+JWT key, OpenAI API key, production database connection string ve admin şifresi `user-secrets` veya production ortamında environment variable üzerinden yönetilmelidir.
 
 User-secrets başlat:
 
@@ -207,6 +321,21 @@ OpenAI model ayarı:
 dotnet user-secrets set "OpenAI:Model" "gpt-5.1"
 ```
 
+Admin seed değerleri:
+
+```bash
+dotnet user-secrets set "AdminSeed:UserName" "YOUR_ADMIN_USERNAME"
+dotnet user-secrets set "AdminSeed:Email" "admin@example.com"
+dotnet user-secrets set "AdminSeed:FullName" "Admin User"
+dotnet user-secrets set "AdminSeed:Password" "YOUR_STRONG_ADMIN_PASSWORD"
+dotnet user-secrets set "AdminSeed:ResetExistingPassword" "true"
+```
+
+Admin girişi başarılı olduktan sonra şifre resetleme ayarı kapatılmalıdır:
+
+```bash
+dotnet user-secrets set "AdminSeed:ResetExistingPassword" "false"
+```
 
 ---
 
@@ -248,9 +377,50 @@ http://localhost:5231/api/health
 
 ---
 
-## 6. Frontend Ayarları
+## 6. Next.js Public Frontend’i Çalıştır
 
-Yeni terminal aç ve frontend klasörüne git:
+Yeni terminal aç ve Next.js frontend klasörüne git:
+
+```bash
+cd frontend-next
+```
+
+Paketleri yükle:
+
+```bash
+npm install
+```
+
+`frontend-next` içinde `.env.local` dosyası oluştur:
+
+```env
+API_BASE_URL=http://localhost:5231/api
+NEXT_PUBLIC_API_BASE_URL=/api
+```
+
+Geliştirme sunucusunu çalıştır:
+
+```bash
+npm run dev
+```
+
+Varsayılan Next.js adresi:
+
+```txt
+http://localhost:3000
+```
+
+Build almak için:
+
+```bash
+npm run build
+```
+
+---
+
+## 7. React/Vite Admin Frontend’i Çalıştır
+
+Yeni terminal aç ve admin frontend klasörüne git:
 
 ```bash
 cd frontend
@@ -276,7 +446,7 @@ Frontend’i çalıştır:
 npm run dev
 ```
 
-Varsayılan frontend adresi:
+Varsayılan Vite adresi:
 
 ```txt
 http://localhost:5173
@@ -284,9 +454,10 @@ http://localhost:5173
 
 ---
 
-## 7. Admin Panel
+## 8. Admin Panel
 
-Admin panel varsayılan `/admin` yolunda değildir.  
+Admin panel varsayılan `/admin` yolunda değildir.
+
 Admin route bilgisi frontend tarafında şu dosyadan yönetilir:
 
 ```txt
@@ -302,7 +473,7 @@ Güvenlik sebebiyle public README içinde gerçek admin route paylaşılmamalıd
 ## 1. Clone the Project
 
 ```bash
-git clone https://github.com/USERNAME/REPOSITORY_NAME.git
+git clone https://github.com/okanbeyx/okan-portfolio-cms.git
 cd okan-portfolio-cms
 ```
 
@@ -326,8 +497,9 @@ dotnet restore
 
 ## 3. User Secrets Setup
 
-Sensitive values are not stored in the source code.  
-JWT key, OpenAI API key and admin password should be managed through `user-secrets` during local development or environment variables in production.
+Sensitive values are not stored in the source code.
+
+JWT key, OpenAI API key, production database connection string and admin password should be managed through `user-secrets` during local development or environment variables in production.
 
 Initialize user-secrets:
 
@@ -370,85 +542,6 @@ dotnet user-secrets set "AdminSeed:ResetExistingPassword" "false"
 ```
 
 ---
-## Admin User Setup / Admin Kullanıcısı Oluşturma
-
-### 🇹🇷 Türkçe
-
-Bu projede varsayılan admin şifresi kaynak kodda tutulmaz.  
-Admin kullanıcısı, backend ilk çalıştırıldığında `AdminSeeder` tarafından oluşturulur.
-
-Admin hesabı oluşturmak için API projesi klasöründe aşağıdaki secret değerleri tanımlanmalıdır:
-
-```bash
-dotnet user-secrets set "AdminSeed:UserName" "YOUR_ADMIN_USERNAME"
-dotnet user-secrets set "AdminSeed:Email" "admin@example.com"
-dotnet user-secrets set "AdminSeed:FullName" "Admin User"
-dotnet user-secrets set "AdminSeed:Password" "YOUR_STRONG_ADMIN_PASSWORD"
-dotnet user-secrets set "AdminSeed:ResetExistingPassword" "true"
-```
-
-Daha sonra backend çalıştırılır:
-
-```bash
-dotnet run
-```
-
-Backend ilk açıldığında admin hesabı oluşturulur veya mevcut admin hesabının şifresi güncellenir.
-
-Admin girişi başarılı olduktan sonra şifre resetleme ayarı kapatılmalıdır:
-
-```bash
-dotnet user-secrets set "AdminSeed:ResetExistingPassword" "false"
-```
-
-Admin panel route bilgisi frontend tarafında şu dosyada tanımlıdır:
-
-```txt
-frontend/src/config/adminRoutes.js
-```
-
-Güvenlik sebebiyle gerçek admin route bilgisi public README içinde paylaşılmamalıdır. Projeyi çalıştıran geliştirici bu dosyadan kendi admin route’unu belirleyebilir.
-
----
-
-### 🇬🇧 English
-
-This project does not store the default admin password in the source code.  
-The admin user is created by `AdminSeeder` when the backend runs for the first time.
-
-To create an admin user, define the following secret values inside the API project folder:
-
-```bash
-dotnet user-secrets set "AdminSeed:UserName" "YOUR_ADMIN_USERNAME"
-dotnet user-secrets set "AdminSeed:Email" "admin@example.com"
-dotnet user-secrets set "AdminSeed:FullName" "Admin User"
-dotnet user-secrets set "AdminSeed:Password" "YOUR_STRONG_ADMIN_PASSWORD"
-dotnet user-secrets set "AdminSeed:ResetExistingPassword" "true"
-```
-
-Then run the backend:
-
-```bash
-dotnet run
-```
-
-When the backend starts, it creates the admin account or updates the password of the existing admin user.
-
-After logging in successfully, disable password reset:
-
-```bash
-dotnet user-secrets set "AdminSeed:ResetExistingPassword" "false"
-```
-
-The admin panel route is configured in:
-
-```txt
-frontend/src/config/adminRoutes.js
-```
-
-For security reasons, the actual admin route should not be exposed in a public README. The developer running the project can define their own admin route in this file.
-
----
 
 ## 4. Database Setup
 
@@ -488,9 +581,50 @@ http://localhost:5231/api/health
 
 ---
 
-## 6. Frontend Setup
+## 6. Run the Next.js Public Frontend
 
-Open a new terminal and go to the frontend folder:
+Open a new terminal and go to the Next.js frontend folder:
+
+```bash
+cd frontend-next
+```
+
+Install packages:
+
+```bash
+npm install
+```
+
+Create a `.env.local` file inside the `frontend-next` folder:
+
+```env
+API_BASE_URL=http://localhost:5231/api
+NEXT_PUBLIC_API_BASE_URL=/api
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Default Next.js URL:
+
+```txt
+http://localhost:3000
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+---
+
+## 7. Run the React/Vite Admin Frontend
+
+Open a new terminal and go to the admin frontend folder:
 
 ```bash
 cd frontend
@@ -502,7 +636,7 @@ Install packages:
 npm install
 ```
 
-Create a `.env` file inside the frontend folder:
+Create a `.env` file inside the `frontend` folder:
 
 ```env
 VITE_API_BASE_URL=http://localhost:5231/api
@@ -510,13 +644,13 @@ VITE_API_BASE_URL=http://localhost:5231/api
 
 Update the backend port if your API runs on a different port.
 
-Run frontend:
+Run the admin frontend:
 
 ```bash
 npm run dev
 ```
 
-Default frontend URL:
+Default Vite URL:
 
 ```txt
 http://localhost:5173
@@ -524,9 +658,10 @@ http://localhost:5173
 
 ---
 
-## 7. Admin Panel
+## 8. Admin Panel
 
-The admin panel does not use the default `/admin` route.  
+The admin panel does not use the default `/admin` route.
+
 The custom admin route is configured in:
 
 ```txt
@@ -550,9 +685,24 @@ JWT secret key
 OpenAI API key
 Production database connection string
 Admin password
+Production appsettings files
+Deployment output folders
 ```
 
 Geliştirme ortamında `user-secrets`, production ortamında environment variables veya hosting sağlayıcısının secret manager sistemi kullanılmalıdır.
+
+Aşağıdaki dosya ve klasörler repository’ye dahil edilmemelidir:
+
+```txt
+.env
+.env.local
+appsettings.Production.json
+publish/
+publish-x86/
+node_modules/
+.next/
+dist/
+```
 
 ### 🇬🇧
 
@@ -565,9 +715,24 @@ JWT secret key
 OpenAI API key
 Production database connection string
 Admin password
+Production appsettings files
+Deployment output folders
 ```
 
-Use `user-secrets` for local development and environment variables or hosting secret manager for production.
+Use `user-secrets` for local development and environment variables or a hosting secret manager for production.
+
+The following files and folders should not be included in the repository:
+
+```txt
+.env
+.env.local
+appsettings.Production.json
+publish/
+publish-x86/
+node_modules/
+.next/
+dist/
+```
 
 ---
 
@@ -667,6 +832,52 @@ General content flow:
 
 ---
 
+## 🔎 SEO Features / SEO Özellikleri
+
+### 🇹🇷
+
+Public site SEO uyumlu olması için Next.js’e taşınmıştır.
+
+Eklenen SEO özellikleri:
+
+- Next.js prerendered public pages
+- Custom title ve meta description
+- Canonical URL
+- Open Graph metadata
+- Twitter metadata
+- JSON-LD structured data
+- Person schema
+- WebSite schema
+- ProfilePage schema
+- robots.txt
+- sitemap.xml
+- Google Search Console doğrulama uyumluluğu
+- Mobil uyumlu yapı
+- Yüksek PageSpeed performansı
+
+### 🇬🇧
+
+The public site has been migrated to Next.js for better SEO support.
+
+Implemented SEO features:
+
+- Next.js prerendered public pages
+- Custom title and meta description
+- Canonical URL
+- Open Graph metadata
+- Twitter metadata
+- JSON-LD structured data
+- Person schema
+- WebSite schema
+- ProfilePage schema
+- robots.txt
+- sitemap.xml
+- Google Search Console verification support
+- Mobile-friendly layout
+- High PageSpeed performance
+
+---
+
 ## 📌 API Summary / API Özeti
 
 ### Public Endpoints
@@ -738,16 +949,74 @@ POST /api/translation/testimonial-to-en
 
 ---
 
+## 🚀 Deployment / Canlıya Alma
+
+### 🇹🇷
+
+Canlı mimari:
+
+```txt
+Public Website      → Next.js on Vercel
+Admin CMS Frontend  → React/Vite on Vercel
+Backend API         → ASP.NET Core API on Windows/Plesk hosting
+Database            → MSSQL
+DNS                 → Cloudflare
+```
+
+Public site:
+
+```txt
+https://okancelikcan.com
+```
+
+Backend API:
+
+```txt
+https://api.example.com/api
+```
+
+Public site Next.js olduğu için `robots.txt` ve `sitemap.xml` otomatik olarak sunulur.
+
+### 🇬🇧
+
+Production architecture:
+
+```txt
+Public Website      → Next.js on Vercel
+Admin CMS Frontend  → React/Vite on Vercel
+Backend API         → ASP.NET Core API on Windows/Plesk hosting
+Database            → MSSQL
+DNS                 → Cloudflare
+```
+
+Public website:
+
+```txt
+https://okancelikcan.com
+```
+
+Backend API:
+
+```txt
+https://api.example.com/api
+```
+
+Since the public website is served with Next.js, `robots.txt` and `sitemap.xml` are provided automatically.
+
+---
+
 ## ✅ Current Status / Mevcut Durum
 
 ### 🇹🇷
 
-Proje local ortamda geliştirilmiş ve CMS modülleri test edilmiştir.
+Proje canlıya alınmış ve public site Next.js altyapısına taşınmıştır.
 
 Tamamlanan başlıklar:
 
-- Public portfolio website
-- Admin dashboard
+- Next.js public portfolio website
+- React/Vite admin CMS panel
+- ASP.NET Core Web API
+- MSSQL database integration
 - Project CMS
 - Project images
 - Hero CMS
@@ -761,15 +1030,22 @@ Tamamlanan başlıklar:
 - Rate limiting
 - OpenAI translation flow
 - Multilingual content flow
+- SEO metadata
+- robots.txt
+- sitemap.xml
+- Google Search Console setup
+- Domain deployment
 
 ### 🇬🇧
 
-The project has been developed and tested locally.
+The project has been deployed and the public site has been migrated to a Next.js-based architecture.
 
 Completed parts:
 
-- Public portfolio website
-- Admin dashboard
+- Next.js public portfolio website
+- React/Vite admin CMS panel
+- ASP.NET Core Web API
+- MSSQL database integration
 - Project CMS
 - Project images
 - Hero CMS
@@ -783,20 +1059,26 @@ Completed parts:
 - Rate limiting
 - OpenAI translation flow
 - Multilingual content flow
+- SEO metadata
+- robots.txt
+- sitemap.xml
+- Google Search Console setup
+- Domain deployment
 
 ---
 
 ## 🔮 Future Improvements / Gelecek Geliştirmeler
 
-- Production deployment
-- Contact form with backend validation
-- SEO metadata CMS
-- Sitemap generation
-- Refresh token support
 - Admin password change screen
+- Refresh token support
 - Audit logs
-- Image cropping before upload
 - Advanced dashboard statistics
+- Contact form with backend validation
+- Image cropping before upload
+- SEO metadata management from CMS
+- Blog/articles module for organic traffic
+- Admin panel migration into Next.js
+- Advanced analytics integration
 
 ---
 
@@ -804,3 +1086,5 @@ Completed parts:
 
 Developed by Okan Çelikcan.  
 Geliştirici: Okan Çelikcan.
+
+Portfolio: https://okancelikcan.com
