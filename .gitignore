@@ -52,3 +52,9 @@ backend/OkanPortfolio.Api/publish-x86/
 backend/OkanPortfolio.Api/publish-x86-api.zip
 backend/**/publish/
 backend/**/publish-*/
+
+frontend-next/node_modules/
+frontend-next/.next/
+frontend-next/out/
+frontend-next/.env.local
+frontend-next/.env*.local
