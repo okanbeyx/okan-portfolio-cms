@@ -1,11 +1,9 @@
 function ProjectImagePlaceholder({
   title,
   category,
-  techStack = [],
   className = '',
 }) {
   const initials = getInitials(title)
-  const safeTechStack = Array.isArray(techStack) ? techStack.slice(0, 4) : []
 
   return (
     <div
@@ -31,19 +29,6 @@ function ProjectImagePlaceholder({
           <p className="mt-2 text-sm text-cyan-200/80">
             {category}
           </p>
-        )}
-
-        {safeTechStack.length > 0 && (
-          <div className="mt-5 flex flex-wrap justify-center gap-2">
-            {safeTechStack.map((tech) => (
-              <span
-                key={tech}
-                className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-xs text-slate-300"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
         )}
       </div>
     </div>
