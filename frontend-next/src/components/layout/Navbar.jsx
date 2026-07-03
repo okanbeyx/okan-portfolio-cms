@@ -3,12 +3,12 @@ import { useState } from 'react'
 function Navbar({ t, language, setLanguage }) {
   const [isOpen, setIsOpen] = useState(false)
 
-  const navItems = [
-    { label: t.nav.projects, href: '#projects' },
-    { label: t.nav.skills, href: '#skills' },
-    { label: t.nav.about, href: '#about' },
-    { label: t.nav.contact, href: '#contact' },
-  ]
+const navItems = [
+  { label: t.nav.projects, href: '/#projects' },
+  { label: t.nav.skills, href: '/#skills' },
+  { label: t.nav.about, href: '/#about' },
+  { label: t.nav.contact, href: '/#contact' },
+]
 
   function changeLanguage(lang) {
     setLanguage(lang)
@@ -18,7 +18,7 @@ function Navbar({ t, language, setLanguage }) {
   return (
     <header className="fixed left-0 top-0 z-50 w-full px-4 py-4 md:px-6">
       <nav className="relative mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/10 bg-slate-950/70 px-4 py-3 shadow-lg shadow-cyan-500/5 backdrop-blur-xl md:px-6">
-        <a href="#home" className="group flex items-center gap-3">
+        <a href="/" className="group flex items-center gap-3">
           <span className="flex h-9 w-9 items-center justify-center rounded-full border border-cyan-300/30 bg-white/5 text-lg font-bold text-cyan-200 shadow-[0_0_24px_rgba(103,232,249,0.18)] transition group-hover:border-purple-300/50 group-hover:text-purple-200">
             O
           </span>
