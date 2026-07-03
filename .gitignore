@@ -40,4 +40,15 @@ pnpm-debug.log*
 # Runtime uploads / local test files
 backend/OkanPortfolio.Api/wwwroot/uploads/
 bad-project.json
-seed-project.json
+seed-project.json 
+
+backend/**/publish/
+backend/**/publish-api.zip
+
+backend/**/publish-self/
+backend/**/publish-self-api.zip
+
+backend/OkanPortfolio.Api/publish-x86/
+backend/OkanPortfolio.Api/publish-x86-api.zip
+backend/**/publish/
+backend/**/publish-*/
