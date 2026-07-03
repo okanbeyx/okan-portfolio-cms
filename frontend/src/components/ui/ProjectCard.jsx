@@ -15,6 +15,11 @@ function ProjectCard({ project, language, t, onViewDetails }) {
   const hasLiveUrl = isUsableUrl(project.liveUrl)
   const hasGithubUrl = isUsableUrl(project.githubUrl)
 
+  const visibleTechStack = project.techStack?.slice(0, 4) ?? []
+  const remainingTechCount = project.techStack?.length > 4
+    ? project.techStack.length - 4
+    : 0
+
   return (
     <GlassCard className="group flex h-full flex-col overflow-hidden p-0 transition duration-300 hover:-translate-y-2 hover:border-cyan-300/30 hover:shadow-purple-500/10">
       {hasImage ? (
@@ -32,7 +37,6 @@ function ProjectCard({ project, language, t, onViewDetails }) {
         <ProjectImagePlaceholder
           title={title}
           category={category}
-          techStack={project.techStack}
           className="aspect-video rounded-none border-x-0 border-t-0"
         />
       )}
@@ -43,30 +47,52 @@ function ProjectCard({ project, language, t, onViewDetails }) {
             {status}
           </span>
 
-          <span className="text-right text-xs font-medium uppercase tracking-[0.2em] text-slate-500">
+          <span className="max-w-[55%] text-right text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500">
             {category}
           </span>
         </div>
 
-        <h3 className="text-2xl font-bold text-slate-100 transition group-hover:text-cyan-200">
+        <h3
+          className="text-xl font-bold leading-snug text-slate-100 transition group-hover:text-cyan-200"
+          style={{
+            display: '-webkit-box',
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
+          }}
+        >
           {title}
         </h3>
 
-        <p className="mt-4 flex-1 leading-7 text-slate-400">
+        <p
+          className="mt-4 text-sm leading-7 text-slate-400"
+          style={{
+            display: '-webkit-box',
+            WebkitLineClamp: 5,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
+          }}
+        >
           {description}
         </p>
 
-        {project.techStack?.length > 0 && (
+        {visibleTechStack.length > 0 && (
           <div className="mt-6 flex flex-wrap gap-2">
-            {project.techStack.map((tech) => (
+            {visibleTechStack.map((tech) => (
               <TechBadge key={tech}>
                 {tech}
               </TechBadge>
             ))}
+
+            {remainingTechCount > 0 && (
+              <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-semibold text-slate-400">
+                +{remainingTechCount}
+              </span>
+            )}
           </div>
         )}
 
-        <div className="mt-7 flex flex-wrap gap-3">
+        <div className="mt-auto flex flex-wrap gap-3 pt-7">
           <button
             type="button"
             onClick={onViewDetails}
